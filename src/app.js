@@ -1,18 +1,19 @@
-
 //layout
-var layout = (nav, banner) => {
+var layout = (nav, body) => {
     return {
-        controller: function () { },
+        controller: function () {},
         view: () => {
-            return m("div",[
+            return m("div", [
                 m(nav),
-                m(banner)
+                m("div#main", [m(body)])
             ]);
         }
     }
 }
 
-var mixinLayout = (layout, nav, banner) => { return layout(nav, banner); };
+var mixinLayout = (layout, nav, body) => {
+    return layout(nav, body);
+};
 
 var app = mixinLayout(layout, sideNav, banner);
 
