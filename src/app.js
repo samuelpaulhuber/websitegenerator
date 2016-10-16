@@ -6,7 +6,7 @@ var layout = (nav, banner, body) => {
             return m("div", [
                 //sliding nav bar
                 m(nav),
-                //main class so banner and body get slid
+                //id=main so banner and body get slid
                 m("div#main", [m(banner), m(body)])
             ]);//div
         }
