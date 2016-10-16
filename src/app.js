@@ -1,22 +1,27 @@
 //layout
-var layout = (nav, body) => {
+var layout = (nav, banner, body) => {
     return {
         controller: function () {},
         view: () => {
             return m("div", [
+                //sliding nav bar
                 m(nav),
-                m("div#main", [m(body)])
-            ]);
+                //main class so banner and body get slid
+                m("div#main", [m(banner), m(body)])
+            ]);//div
         }
     }
 }
 
-var mixinLayout = (layout, nav, body) => {
-    return layout(nav, body);
+// takes a body and applys the banner and sideNav
+var mixinLayout = (layout, body) => {
+    return layout(sideNav, banner, body);
 };
 
-var app = mixinLayout(layout, sideNav, banner);
+var homePage = mixinLayout(layout, home);
+var aboutPage = mixinLayout(layout, about);
 
-m.route(document.body, "/app", {
-    "/app": app
+m.route(document.body, "/", {
+    "/": homePage,
+    "/about": aboutPage
 });

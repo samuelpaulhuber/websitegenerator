@@ -4,8 +4,8 @@ var sideNav = {};
 //here's the view
 sideNav.view = function (ctrl) {
     return <div id="mySidenav" className="sidenav">
-        <a href="#">About</a>
-        <a href="#">Services</a>
+        <a href="/home" config={m.route}>Home</a>
+        <a href="/about" config={m.route}>About</a>
         <a href="#">Clients</a>
         <a href="#">Contact</a>
     </div>
